@@ -1,0 +1,6 @@
+{
+  "name": "ParkMyCar.online",
+  "description": "A QR-based smart car contact system. Scan. Notify. Done.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}

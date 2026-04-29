@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Cabinet Grotesk", "IBM Plex Sans", sans-serif;
+  
+  --color-brand: #0f172a;
+  --color-accent: #3b82f6;
+}
+
+@layer base {
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+.glass {
+  @apply bg-white/80 backdrop-blur-md border border-white/20;
+}
+
+.btn-primary {
+  @apply bg-slate-900 text-white px-4 py-2 rounded-lg font-medium transition-all hover:bg-slate-800 active:scale-95 disabled:opacity-50;
+}
+
+.btn-secondary {
+  @apply bg-white text-slate-900 border border-slate-200 px-4 py-2 rounded-lg font-medium transition-all hover:bg-slate-50 active:scale-95 disabled:opacity-50;
+}
+

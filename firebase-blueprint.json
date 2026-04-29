@@ -1,0 +1,60 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Registered user profile",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "whatsappNumber": { "type": "string", "description": "WhatsApp number for notifications" },
+        "phoneNumber": { "type": "string", "description": "Phone number for calling" },
+        "address": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "displayName", "phoneNumber", "address"]
+    },
+    "Car": {
+      "title": "Car",
+      "description": "A vehicle registered to a user",
+      "type": "object",
+      "properties": {
+        "carId": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "carNumber": { "type": "string" },
+        "label": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["carId", "ownerId", "carNumber"]
+    },
+    "Alert": {
+      "title": "Alert",
+      "description": "Notification sent to a car owner",
+      "type": "object",
+      "properties": {
+        "carId": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "type": { "type": "string", "enum": ["car_blocking", "lights_on", "tyre_flat", "accident", "custom"] },
+        "message": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "senderId": { "type": "string", "description": "Anonymous or user ID of sender" }
+      },
+      "required": ["carId", "ownerId", "type", "timestamp"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "cars/{carId}": {
+      "schema": "Car",
+      "description": "Registered vehicles"
+    },
+    "alerts/{alertId}": {
+      "schema": "Alert",
+      "description": "History of alerts sent to owners"
+    }
+  }
+}
